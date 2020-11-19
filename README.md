@@ -103,13 +103,6 @@ git push
 | :--- | --- |
 | The application currently **crashes** when a `Placeholder` button is clicked <br>on the main dashboard.<br><br>Design an alert dialog that is shown with an `"Under Construction"` type <br>of message instead of crashing. | ![Construction Dialog](ScreenMocks/Groovy-04-UnderConstruction.png) |
 
-## Task ID: #002 - Generating Test Data & Populating the Database
-#### Estimated LOE (Level of Effort): 2 Hours  
-
-| Requirements | Code Sample |
-| :--- | :---: |
-| Generate a few database records to work with. At a minimum we need one <br>`ProductEntity` record (this is already being generated), but it would be <br>beneficial to have a couple `TaxEntity`, `ProductTaxEntityJunction`, <br>`CartEntity` and `CartProductEntity` records to provide data for our views. <br><br>:warning: Check out the: `com.imobile3.groovypayments.data.GroovyDemoManager` class. <br><br>Additionally, you might want to create some `UserEntity` records for the **User Database Schema & Password Encryption** tasks. | ![Client Secret](ScreenMocks/Groovy-20-DatabaseTestDataCode.png) |
-
 ## Task ID: #003 - Product List Facelift  
 #### Estimated LOE (Level of Effort): 2 Hours  
 
