@@ -142,16 +142,7 @@ git push
 | :--- | --- |
 | Currently, there is no way to complete the Checkout flow, because we <br>haven't implemented **Cash** or Credit support. The "Pay with Cash" screen has <br>a 10-digit Keypad, but it isn't wired up. <br><br>:warning: **Bonus points for allowing the User to over-pay or under-pay, and <br>show the User how much Change is Due to the Customer.** | ![Checkout with Cash](ScreenMocks/Groovy-14-CheckoutCash.png) |
 
-## Task ID: #008 - Generate the Client Secret... On the Client!  
-#### Estimated LOE (Level of Effort): 2 Hours  
-
-| Requirements | Code Sample / Business Mock |
-| :--- | :---: |
-| We don't have a Server for this test application, so we <br>emulate the "Server" within our app. The Android and <br>iOS applications both use asynchronous utilities for generating <br>a **Client Secret** using your Stripe **Secret** API key. <br>Most of the necessary code already exists, and there is an **Instrumentation Test** <br>available for you to get an idea of how this works - you just need to call our asynchronous <br>method and handle the resulting callbacks. | ![Client Secret](ScreenMocks/Groovy-19-ClientSecretCode.png) |
-| Be sure to gracefully handle any errors that might occur. | ![Error](ScreenMocks/Groovy-15-ClientSecretError.png) |
-
 ## Task ID: #009 - Pay with a Credit Card Number  
-#### Depends on Client Secret mechanism  
 #### Estimated LOE (Level of Effort): 4 Hours  
 
 | Requirements | Business Mock |
