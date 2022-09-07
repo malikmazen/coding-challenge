@@ -102,7 +102,11 @@ public class MainDashboardActivity extends BaseActivity {
                 break;
 
             case Placeholder2:
-                throw new RuntimeException("User clicked a Placeholder button");
+
+                showAlertDialog(
+                        R.string.common_under_construction,
+                        R.string.common_under_construction_alert,
+                        R.string.common_acknowledged);
         }
     }
 

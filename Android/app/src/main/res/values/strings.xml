@@ -10,6 +10,7 @@
     <string name="common_management">Management</string>
     <string name="common_time_tracking">Time Tracking</string>
     <string name="common_under_construction">Under Construction</string>
+    <string name="common_under_construction_alert">This area of the application is still under construction. Feel free to demonstrate your skills and build it.</string>
     <string name="common_acknowledged">Acknowledged</string>
     <string name="common_order_history">Order History</string>
     <string name="common_secret_functions">Secret Functions</string>
