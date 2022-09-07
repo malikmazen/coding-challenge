@@ -2,15 +2,24 @@ package com.imobile3.groovypayments.ui.chart;
 
 import android.os.Bundle;
 
+import com.anychart.AnyChart;
+import com.anychart.AnyChartView;
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.charts.Pie;
+import com.anychart.data.View;
+import com.anychart.enums.Align;
+import com.anychart.enums.LegendLayout;
 import com.imobile3.groovypayments.R;
 import com.imobile3.groovypayments.ui.BaseActivity;
 import com.imobile3.groovypayments.ui.dialog.ProgressDialog;
 
 import androidx.lifecycle.ViewModelProviders;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PieChartActivity extends BaseActivity {
+    // TODO: Stubbed class, implement pie chart for product popularity
 
     private ProgressDialog mProgressDialog;
     private PieChartViewModel mViewModel;
@@ -25,9 +34,20 @@ public class PieChartActivity extends BaseActivity {
         mViewModel.getProductList().observe(this, PieChartActivity.this::setPieChart);
     }
 
-    // TODO: Update list parameterized type to chart library data wrapper
-    private void setPieChart(List<String> data) {
-        // TODO: Populate the chart view
+    private void setPieChart(List<DataEntry> data) {
+        mProgressDialog
+                .setMessage(getResources().getString(R.string.daily_report_progress_message));
+        mProgressDialog.show();
+
+        AnyChartView AnychartView = findViewById(R.id.anyChartView);
+        Pie pie = AnyChart.pie();
+        pie.data(data);
+        pie.labels().position("outside");
+        pie.legend()
+                .itemsLayout(LegendLayout.HORIZONTAL_EXPANDABLE)
+                .align(Align.CENTER);
+        AnychartView.setOnRenderedListener(() -> mProgressDialog.dismiss());
+        AnychartView.setChart(pie);
     }
 
     @Override
