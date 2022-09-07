@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Groovy mobiele betalingen</string>
+
+    <!-- Common -->
+    <string name="common_ok">OK</string>
+    <string name="common_cancel">Annuleren</string>
+    <string name="common_back">Rug</string>
+    <string name="common_change">Wijziging</string>
+    <string name="common_order_entry">Order Entry</string>
+    <string name="common_management">Administratie</string>
+    <string name="common_time_tracking">Tijdregistratie</string>
+    <string name="common_under_construction">In opbouw</string>
+    <string name="common_under_construction_alert">Dit gedeelte van de app is nog in aanbouw. Voel je vrij om je vaardigheden te laten zien en het te bouwen</string>
+    <string name="common_acknowledged">Erkend</string>
+    <string name="common_order_history">Bestelgeschiedenis</string>
+    <string name="common_secret_functions">Geheime functies</string>
+    <string name="common_user_profile">Gebruikersprofiel</string>
+    <string name="common_lorem_ipsum_description">Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit. Integer commodo, nisi a rutrum dapibus, urna elit cursus mi, ut
+        elementum lacus elit nec diam. Nullam laoreet dui id dui facilisis lacinia. Sed convallis
+        feugiat ex, interdum tincidunt sapien consequat ut.</string>
+
+
+    <!-- Login -->
+    <string name="prompt_email">E-mail</string>
+    <string name="prompt_password">Wachtwoord</string>
+    <string name="action_sign_in">Log in</string>
+    <string name="skip_login">Sla login over</string>
+    <string name="action_sign_in_short">Aanmelden</string>
+    <string name="welcome">Welkom!</string>
+    <string name="invalid_username">Geen geldige gebruikersnaam</string>
+    <string name="invalid_password">Wachtwoord moet >5 tekens zijn</string>
+    <string name="login_failed">"Login fout"</string>
+
+    <!-- Main Dashboard -->
+    <string name="order_entry_description">Blader door winkelvoorraad of verkoop
+        klant producten.</string>
+    <string name="user_profile_description">Uw gebruikersinstellingen bekijken of bewerken
+        huidig.</string>
+    <string name="management_description">Beheer uw verkooppuntinstellingen.</string>
+    <string name="time_tracking_description">Check in/out en bekijk je activiteit
+        recent.</string>
+    <string name="order_history_description">Bekijk historische afgehandelde bestellingen
+        op dit verkooppunt.</string>
+    <string name="secret_functions_description">Supergeheim gebied waar je functies kunt uitvoeren
+        zoals het resetten van de demodatabase.</string>
+    <string name="placeholder_description">Dit is een tijdelijke tijdelijke aanduiding.</string>
+    <string name="under_construction_alert_message">Dit deel van de applicatie is nog steeds in
+        gebouw. Voel je vrij om je vaardigheden te tonen en te bouwen.</string>
+    <string name="main_dashboard_subtitle">Waar zou je heen willen?</string>
+
+    <!-- User Profile -->
+    <string name="user_profile_subtitle_format">Welkom %1$s.</string>
+    <string name="user_profile_username">Gebruikersnaam:</string>
+    <string name="user_profile_email">Email:</string>
+    <string name="user_profile_hours_week">Uren (week):</string>
+
+    <!-- Secret Functions -->
+    <string name="secret_functions_subtitle">Topgeheim gebied.</string>
+    <string name="secret_functions_reset_database">Database resetten</string>
+    <string name="secret_functions_erase_cart">Winkelwagen verwijderen</string>
+    <string name="secret_functions_alert_title">Functie uitgevoerd</string>
+    <string name="secret_functions_alert_button">Het is begrepen.</string>
+    <string name="secret_functions_alert_reset_database">De demo-database
+        succesvol resetten (alle originele demogegevens zijn hersteld).
+        Dit bericht zal zichzelf vernietigen.</string>
+    <string name="secret_functions_alert_erase_cart">Uw huidige winkelwageninstantie is geweest
+        gewist. Het is bijna alsof je winkelwagen nooit heeft bestaan&#8230;</string>
+
+    <!-- Order Entry -->
+    <string name="order_entry_subtitle">Voeg producten toe aan de bestelling.</string>
+    <string name="order_entry_subtitle_checkout">Klik op het pictogram rechtsboven om
+        uitchecken.</string>
+
+    <!-- Order History -->
+    <string name="order_history_subtitle">Recente bestellingen hieronder vermeld.</string>
+    <string name="order_history_alert_title">Niet geïmplementeerd</string>
+    <string name="order_history_alert_button">Zeker.</string>
+    <string name="order_history_alert_message">Bestelgeschiedenis functionaliteit nee
+        geïmplementeerd. Stop a.u.b. met klikken op de items in de lijst.</string>
+    <string name="order_history_alert_warning_title">Voor</string>
+    <string name="order_history_alert_warning_button">Wat dan ook.</string>
+    <string name="order_history_alert_warning_message">U bent gewaarschuwd om niet op de . te klikken
+        lijst items. Beheerders zijn op de hoogte gesteld.</string>
+
+
+
+    <!-- Checkout -->
+    <string name="checkout_subtitle">Hoe ga je betalen?</string>
+    <string name="checkout_with_cash">Contant geld</string>
+    <string name="checkout_with_credit">Met tegoed</string>
+    <string name="checkout_pay_cash">Contant betalen)</string>
+    <string name="checkout_pay_credit">Betalen (tegoed)</string>
+    <string name="checkout_complete_title_message">Gefeliciteerd! Uw betaling is goedgekeurd!</string>
+    <string name="checkout_complete_subtitle">Bestelling voltooid!</string>
+    <string name="checkout_complete_customer_message">Bedankt voor het winkelen bij ons: alsjeblieft
+        Klik op de onderstaande knop om terug te keren naar het scherm Orderinvoer.</string>
+    <string name="checkout_complete_groovy">Prachtig!</string>
+
+    <!-- Payment Types -->
+    <string name="credit">Credit</string>
+    <string name="cash">Contant Geld</string>
+
+    <!-- Keypad -->
+    <string name="keypad_1">1</string>
+    <string name="keypad_2">2</string>
+    <string name="keypad_3">3</string>
+    <string name="keypad_4">4</string>
+    <string name="keypad_5">5</string>
+    <string name="keypad_6">6</string>
+    <string name="keypad_7">7</string>
+    <string name="keypad_8">8</string>
+    <string name="keypad_9">9</string>
+    <string name="keypad_00">00</string>
+    <string name="keypad_0">0</string>
+
+    <!-- Progress / Tasks -->
+    <string-array name="progress_dialog_messages">
+        <item>Analyseren van de cijfers&#8230;</item>
+        <item>Gegevens evalueren&#8230;</item>
+        <item>Waarden analyseren&#8230;</item>
+        <item>Lopende algoritmen&#8230;</item>
+        <item>Controle bij banken&#8230;</item>
+        <item>Machine learning gebruiken&#8230;</item>
+        <item>Bonen tellen&#8230;</item>
+    </string-array>
+    <!--Daily Report-->
+    <string name="daily_report_subtitle">Dagelijks rapport</string>
+    <string name="daily_report_product_popularity">Productpopulariteit:</string>
+    <string name="daily_report_progress_message">Grafiek laden</string>
+</resources>
