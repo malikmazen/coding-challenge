@@ -1,6 +1,7 @@
 package com.imobile3.groovypayments.ui.adapter;
 
 import android.content.Context;
+import android.icu.util.LocaleData;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,9 +9,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.imobile3.groovypayments.R;
+import com.imobile3.groovypayments.data.Result;
 import com.imobile3.groovypayments.data.enums.GroovyColor;
 import com.imobile3.groovypayments.data.enums.GroovyIcon;
 import com.imobile3.groovypayments.data.model.Cart;
+import com.imobile3.groovypayments.manager.CartManager;
 import com.imobile3.groovypayments.rules.CartRules;
 import com.imobile3.groovypayments.utils.StateListHelper;
 
@@ -21,8 +24,11 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class CartListAdapter
         extends RecyclerView.Adapter<CartListAdapter.ViewHolder> {
@@ -57,11 +63,21 @@ public class CartListAdapter
     public void onBindViewHolder(ViewHolder holder, int position) {
         Cart item = mItems.get(position);
         CartRules rules = new CartRules(item);
+        double total = item.getGrandTotal();
+
 
         // Configure the icon and background circle.
         holder.icon.setImageResource(GroovyIcon.Bookmarklet.drawableRes);
         holder.icon.setBackground(
                 ContextCompat.getDrawable(mContext, GroovyColor.Orange.colorRes));
+
+        holder.labelTotal.setText("$" + String.format("%.2f", total/100));
+        holder.labelTotal.setTextColor(
+                StateListHelper.getTextColorSelector(mContext, R.color.gray_down_pour));
+
+        holder.labelDate.setText(rules.getFormattedDate(Locale.ENGLISH));
+        holder.labelDate.setTextColor(
+                StateListHelper.getTextColorSelector(mContext, R.color.gray_down_pour));
 
         holder.description.setText(rules.getOrderHistoryDescription());
         holder.description.setTextColor(
