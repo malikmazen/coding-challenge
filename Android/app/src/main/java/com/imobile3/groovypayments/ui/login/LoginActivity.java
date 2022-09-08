@@ -63,11 +63,13 @@ public class LoginActivity extends BaseActivity {
                 loadingProgressBar.setVisibility(View.GONE);
                 if (loginResult.getError() != null) {
                     showLoginFailed(loginResult.getError());
+
                 }
                 if (loginResult.getSuccess() != null) {
                     updateUiWithUser(loginResult.getSuccess());
+                    handleLoginSuccess();
                 }
-                handleLoginSuccess();
+
             }
         });
 
@@ -110,7 +112,6 @@ public class LoginActivity extends BaseActivity {
                         passwordEditText.getText().toString());
             }
         });
-
         btnSkipLogin.setOnClickListener(v -> handleLoginSuccess());
     }
 

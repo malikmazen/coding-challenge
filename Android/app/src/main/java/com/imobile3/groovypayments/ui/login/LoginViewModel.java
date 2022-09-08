@@ -1,11 +1,15 @@
 package com.imobile3.groovypayments.ui.login;
 
+import android.app.Notification;
+import android.content.Intent;
 import android.util.Patterns;
+import android.widget.Toast;
 
 import com.imobile3.groovypayments.R;
 import com.imobile3.groovypayments.data.LoginRepository;
 import com.imobile3.groovypayments.data.Result;
 import com.imobile3.groovypayments.data.model.LoggedInUser;
+import com.imobile3.groovypayments.ui.checkout.CheckoutCompleteActivity;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -29,6 +33,8 @@ public class LoginViewModel extends ViewModel {
         return loginResult;
     }
 
+
+
     public void login(String username, String password) {
         // Can be launched in a separate asynchronous job
         Result<LoggedInUser> result = loginRepository.login(username, password);
@@ -38,6 +44,8 @@ public class LoginViewModel extends ViewModel {
             loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
         } else {
             loginResult.setValue(new LoginResult(R.string.login_failed));
+
+
         }
     }
 
@@ -50,6 +58,7 @@ public class LoginViewModel extends ViewModel {
             loginFormState.setValue(new LoginFormState(true));
         }
     }
+
 
     // A placeholder username validation check
     private boolean isUserNameValid(String username) {
@@ -67,4 +76,5 @@ public class LoginViewModel extends ViewModel {
     private boolean isPasswordValid(String password) {
         return password != null && password.trim().length() > 5;
     }
+
 }

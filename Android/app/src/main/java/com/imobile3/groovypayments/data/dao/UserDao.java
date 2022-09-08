@@ -17,6 +17,9 @@ public interface UserDao {
     @Query("SELECT * FROM user")
     List<UserEntity> getUsers();
 
+    @Query("SELECT EXISTS (SELECT * FROM user where username = :userName AND password= :password)")
+    boolean login(String userName, String password);
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     void insertUsers(UserEntity... values);
 
