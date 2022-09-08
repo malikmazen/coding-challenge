@@ -24,7 +24,7 @@ public class LoginDataSource {
         }
         // TODO: handle loggedInUser authentication
         //allows users to login with username or email
-        //No need to decrypt, it will checks if the encypted password is in the table
+        //No need to decrypt, it will checks if the encrypted password is in the table
        if (DatabaseHelper.getInstance().getDatabase().getUserDao().loginUsername(username,password) ||
                DatabaseHelper.getInstance().getDatabase().getUserDao().loginEmail(username,password))
 
@@ -32,10 +32,10 @@ public class LoginDataSource {
             LoggedInUser dummyUser =
                     new LoggedInUser(
                             java.util.UUID.randomUUID().toString(),
-                            "Mazen Malik");
+                            "");
             return  new Result.Success<>(dummyUser);
         } else {
-            return new Result.Error(new IOException("error"));
+            return new Result.Error(new IOException("ERROR"));
         }
     }
 

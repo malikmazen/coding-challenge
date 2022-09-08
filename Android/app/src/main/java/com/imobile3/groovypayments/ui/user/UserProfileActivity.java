@@ -1,18 +1,34 @@
 package com.imobile3.groovypayments.ui.user;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
+import androidx.room.Query;
 
+import com.anychart.chart.common.dataentry.DataEntry;
+import com.anychart.chart.common.dataentry.ValueDataEntry;
 import com.imobile3.groovypayments.R;
+import com.imobile3.groovypayments.data.DatabaseHelper;
 import com.imobile3.groovypayments.data.entities.UserEntity;
 import com.imobile3.groovypayments.ui.BaseActivity;
+import com.imobile3.groovypayments.ui.login.LoginActivity;
+
+import org.w3c.dom.Entity;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserProfileActivity extends BaseActivity {
 
     @NonNull
     private final UserEntity mUser = new UserEntity();
+    String firstName, lastName, email, value;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,22 +54,23 @@ public class UserProfileActivity extends BaseActivity {
 
     @Override
     protected void initViewModel() {
-        mUser.setId(122563L);
-        mUser.setFirstName("Fred");
-        mUser.setLastName("Fredburger");
-        mUser.setUsername("fburger");
-        mUser.setEmail("fburger@gmail.com");
-        mUser.setPassword("aaa1");
+        SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
+         value = sharedPreferences.getString("value","");
+         firstName = DatabaseHelper.getInstance().getDatabase().getUserDao().loadFirstName(value);
+         lastName = DatabaseHelper.getInstance().getDatabase().getUserDao().loadLastName(value);
+         email = DatabaseHelper.getInstance().getDatabase().getUserDao().loadEmail(value);
+
+
     }
 
     private void setUpViews() {
-        TextView lblUsername = findViewById(R.id.label_username);
-        lblUsername.setText(mUser.getUsername());
+        TextView labelUsername = findViewById(R.id.label_username);
+        labelUsername.setText(value);
+        TextView labelName = findViewById(R.id.label_name);
+        labelName.setText(firstName+ " " + lastName);
+        TextView labelEmail = findViewById(R.id.label_email);
+        labelEmail.setText(email);
 
-        TextView lblEmail = findViewById(R.id.label_email);
-        lblEmail.setText(mUser.getEmail());
 
-        TextView lblHoursWeek = findViewById(R.id.label_hours_week);
-        lblHoursWeek.setText(String.valueOf(35.42d));
     }
 }

@@ -84,17 +84,17 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
                     android:gravity="end"
-                    android:text="@string/user_profile_email" />
+                    android:text="@string/user_profile_name" />
 
                 <TextView
-                    android:id="@+id/label_email"
+                    android:id="@+id/label_name"
                     style="@style/TextView.Monospace.Bold"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_large"
                     android:layout_weight="1"
                     android:gravity="start"
-                    tools:text="jdoe@gmail.com" />
+                    tools:text="Mazen Malik" />
             </LinearLayout>
 
             <LinearLayout
@@ -109,17 +109,17 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
                     android:gravity="end"
-                    android:text="@string/user_profile_hours_week" />
+                    android:text="@string/user_profile_email" />
 
                 <TextView
-                    android:id="@+id/label_hours_week"
+                    android:id="@+id/label_email"
                     style="@style/TextView.Monospace.Bold"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/margin_large"
                     android:layout_weight="1"
                     android:gravity="start"
-                    tools:text="34.75" />
+                    tools:text="malikmazen@gmail.com" />
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

@@ -49,12 +49,13 @@
     <string name="under_construction_alert_message">Dit deel van de applicatie is nog steeds in
         gebouw. Voel je vrij om je vaardigheden te tonen en te bouwen.</string>
     <string name="main_dashboard_subtitle">Waar zou je heen willen?</string>
+    <string name="reports_description">Bekijk de populariteitsgrafiek van producten op basis van dagelijks</string>
 
     <!-- User Profile -->
-    <string name="user_profile_subtitle_format">Welkom %1$s.</string>
+    <string name="user_profile_subtitle_format">Welkom %1$s</string>
     <string name="user_profile_username">Gebruikersnaam:</string>
     <string name="user_profile_email">Email:</string>
-    <string name="user_profile_hours_week">Uren (week):</string>
+    <string name="user_profile_name">Naam:</string>
 
     <!-- Secret Functions -->
     <string name="secret_functions_subtitle">Topgeheim gebied.</string>
@@ -129,4 +130,6 @@
     <string name="daily_report_subtitle">Dagelijks rapport</string>
     <string name="daily_report_product_popularity">Productpopulariteit:</string>
     <string name="daily_report_progress_message">Grafiek laden</string>
+    <string name="reports">Rapporten</string>
+
 </resources>

@@ -2,6 +2,7 @@ package com.imobile3.groovypayments.ui.login;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,6 +18,7 @@ import android.widget.Toast;
 import com.imobile3.groovypayments.R;
 import com.imobile3.groovypayments.ui.BaseActivity;
 import com.imobile3.groovypayments.ui.main.MainDashboardActivity;
+import com.imobile3.groovypayments.ui.user.UserProfileActivity;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
@@ -110,6 +112,12 @@ public class LoginActivity extends BaseActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+                String value = usernameEditText.getText().toString();
+                SharedPreferences sharedPref = getSharedPreferences("myKey", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPref.edit();
+                editor.putString("value", value);
+                editor.apply();
+
             }
         });
         btnSkipLogin.setOnClickListener(v -> handleLoginSuccess());

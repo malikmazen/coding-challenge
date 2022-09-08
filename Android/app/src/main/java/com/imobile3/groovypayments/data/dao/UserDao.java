@@ -21,6 +21,12 @@ public interface UserDao {
     boolean loginUsername(String userName, String password);
     @Query("SELECT EXISTS (SELECT * FROM user where email = :email AND password= :password)")
     boolean loginEmail(String email, String password);
+    @Query("SELECT first_name FROM user WHERE username =:user OR email=:user")
+    String loadFirstName(String user);
+    @Query("SELECT last_name FROM user WHERE username =:user OR email=:user ")
+    String loadLastName(String user);
+    @Query("SELECT email FROM user WHERE username =:user OR email=:user")
+    String loadEmail(String user);
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

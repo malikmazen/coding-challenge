@@ -109,7 +109,7 @@ public final class GroovyDemoManager {
                     e.printStackTrace();
                 }
             }
-//temporary solution
+           //temporary solution
             List<UserEntity> userEntities = new ArrayList<>();
 
             // Add user.
