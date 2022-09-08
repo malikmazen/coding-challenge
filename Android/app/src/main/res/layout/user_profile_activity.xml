@@ -59,9 +59,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
                     android:gravity="end"
-                    android:text="@string/user_profile_username"
-                    android:visibility="gone"
-                    tools:visibility="visible" />
+                    android:text="@string/user_profile_username" />
 
                 <TextView
                     android:id="@+id/label_username"
@@ -86,9 +84,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
                     android:gravity="end"
-                    android:text="@string/user_profile_email"
-                    android:visibility="gone"
-                    tools:visibility="visible" />
+                    android:text="@string/user_profile_email" />
 
                 <TextView
                     android:id="@+id/label_email"
@@ -113,9 +109,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="0.75"
                     android:gravity="end"
-                    android:text="@string/user_profile_hours_week"
-                    android:visibility="gone"
-                    tools:visibility="visible" />
+                    android:text="@string/user_profile_hours_week" />
 
                 <TextView
                     android:id="@+id/label_hours_week"

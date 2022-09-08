@@ -12,12 +12,18 @@ import com.imobile3.groovypayments.data.entities.CartTaxEntity;
 import com.imobile3.groovypayments.data.entities.ProductEntity;
 import com.imobile3.groovypayments.data.entities.ProductTaxJunctionEntity;
 import com.imobile3.groovypayments.data.entities.TaxEntity;
+import com.imobile3.groovypayments.data.entities.UserEntity;
 import com.imobile3.groovypayments.data.model.Cart;
 import com.imobile3.groovypayments.data.model.Product;
+import com.imobile3.groovypayments.data.utils.personBuilder;
 import com.imobile3.groovypayments.logging.LogHelper;
+import com.imobile3.groovypayments.utils.EncryptDecrypt;
 
 import androidx.annotation.NonNull;
 
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.CountDownLatch;
@@ -28,6 +34,10 @@ import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 
 import static com.imobile3.groovypayments.data.TestDataRepository.Environment;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 public final class GroovyDemoManager {
 
@@ -81,11 +91,47 @@ public final class GroovyDemoManager {
 
         @Override
         protected Void doInBackground(Void... params) {
+            String [] pass = {"1234567", "7654321" };
             // Blow away any existing database instance.
             DatabaseHelper.getInstance().eraseDatabase(mContext);
 
             // Initialize a new database instance.
             DatabaseHelper.getInstance().init(mContext);
+
+
+
+            for(int i=0;i<pass.length;i++){
+                try {
+                    pass[i] = EncryptDecrypt.encrypt(pass[i]);
+                } catch (NoSuchPaddingException | NoSuchAlgorithmException
+                        | InvalidAlgorithmParameterException | InvalidKeyException
+                        | IllegalBlockSizeException | BadPaddingException e) {
+                    e.printStackTrace();
+                }
+            }
+//temporary solution
+            List<UserEntity> userEntities = new ArrayList<>();
+
+            // Add user.
+            userEntities.add(personBuilder.build(
+                    101,
+                    "Mike",
+                    "Tyson",
+                    "miketyson",
+                    "myketyson@gmail.com",
+                    pass[0]));
+            userEntities.add(personBuilder.build(
+                    102,
+                    "Manny",
+                    "Pacquiao",
+                    "pacman",
+                    "mannyP@gmail.com",
+                    pass[1]));
+
+            // Insert entities into database instance.
+            DatabaseHelper.getInstance().getDatabase().getUserDao()
+                    .insertUsers(
+                            userEntities.toArray(new UserEntity[0]));
 
             // Pretend that we have hundreds of thousands of records to create.
             // We need some sweet multi-threading action to speed things up!

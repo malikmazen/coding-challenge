@@ -1,24 +1,33 @@
 package com.imobile3.groovypayments.data;
-
-import com.imobile3.groovypayments.data.dao.UserDao;
-import com.imobile3.groovypayments.data.entities.UserEntity;
 import com.imobile3.groovypayments.data.model.LoggedInUser;
-import com.imobile3.groovypayments.data.model.Product;
-
+import com.imobile3.groovypayments.utils.EncryptDecrypt;
 import java.io.IOException;
-import java.net.UnknownServiceException;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.
  */
 public class LoginDataSource {
-    UserDao userDao;
-    public Result<LoggedInUser> login(String username, String password) {
-        // TODO: handle loggedInUser authentication
 
-       if (DatabaseHelper.getInstance().getDatabase().getUserDao().login(username,password))
+    public Result<LoggedInUser> login(String username, String password) {
+        try {
+            password = EncryptDecrypt.encrypt(password);
+        }catch (NoSuchPaddingException | NoSuchAlgorithmException
+                | InvalidAlgorithmParameterException | InvalidKeyException
+                | IllegalBlockSizeException | BadPaddingException e) {
+            e.printStackTrace();
+        }
+        // TODO: handle loggedInUser authentication
+        //allows users to login with username or email
+        //No need to decrypt, it will checks if the encypted password is in the table
+       if (DatabaseHelper.getInstance().getDatabase().getUserDao().loginUsername(username,password) ||
+               DatabaseHelper.getInstance().getDatabase().getUserDao().loginEmail(username,password))
+
         {
             LoggedInUser dummyUser =
                     new LoggedInUser(
@@ -29,12 +38,11 @@ public class LoginDataSource {
             return new Result.Error(new IOException("error"));
         }
     }
-    public Result<List<UserEntity>> getUser() {
-        List<UserEntity> results =
-                DatabaseHelper.getInstance().getDatabase().getUserDao().getUsers();
-        return new Result.Success<>(results);
-    }
+
+
     public void logout() {
         // TODO: revoke authentication
     }
+
+
 }
